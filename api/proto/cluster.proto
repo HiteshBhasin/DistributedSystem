@@ -4,41 +4,35 @@ package proto;
 
 option go_package = "github.com/bhasi/DistributedLoadSystem/pkg/pb";
 
-service ClusterService{
-    rpc Ping(PingRequest) 
-     returns (PingResponse);
+service ClusterService {
+  rpc Ping(PingRequest) returns (PingResponse);
 
-    rpc RegisterNode(RegisterNodeRequest) 
-     returns (RegisterNodeResponse);
+  rpc RegisterNode(RegisterNodeRequest) returns (RegisterNodeResponse);
 
-    rpc SubmitTask(SubmitTaskRequest) 
-     returns (SubmitTaskResponse);
-
-    
+  rpc SubmitTask(SubmitTaskRequest) returns (SubmitTaskResponse);
 }
 
 message PingRequest {
-    string node_id = 1;
+  string node_id = 1;
 }
 message PingResponse {
-    bool success = 1;
+  bool success = 1;
 }
 
 message RegisterNodeRequest {
-    string node_id = 1;
-    string node_address = 2;
-
+  string node_id = 1;
+  string node_address = 2;
 }
 
 message RegisterNodeResponse {
-    bool success = 1;
+  bool success = 1;
 }
 
 message SubmitTaskRequest {
-    string task_id = 1;
-    string task_data = 2;
+  string task_id = 1;
+  string task_data = 2;
 }
 
 message SubmitTaskResponse {
-    bool success = 1;
+  bool success = 1;
 }
