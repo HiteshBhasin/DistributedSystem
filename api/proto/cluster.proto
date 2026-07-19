@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package proto;
 
-option go_package = "github.com/bhasi/DistributedLoadSystem/pkg/pb";
+option go_package = "github.com/HiteshBhasin/DistributedLoadSystem/pkg/pb";
 
 service ClusterService{
     rpc Ping(PingRequest) 
