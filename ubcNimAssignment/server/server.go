@@ -51,7 +51,18 @@ func main() {
 	buffer := make([]byte, 1024)
 	var currentBoard []uint8
 
-	for{
-		
+	for {
+
+		n, remoteAddr, err := conn.ReadFromUDP(buffer)
+		if err != nil {
+			fmt.Printf("Error reading: %v\n", err)
+			continue
+		}
+
+		err = json.Unmarshal(buffer[:], &stateMoveMessage)
+		if err != nil {
+			fmt.Printf("Failed to unmarshal message: %v\n", err)
+			continue
+		}
 	}
 }
