@@ -1,0 +1,4 @@
+go.mod
+github.com
+vendor/
+go.sum
