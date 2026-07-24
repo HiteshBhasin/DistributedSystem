@@ -10,10 +10,12 @@ import (
 
 type Config struct {
 	ServerAddress string `json:"server UDP ADD"`
+	seed          int8   `jason:seed`
 }
 
 var config = Config{
 	ServerAddress: "197.0.0.1:8080",
+	seed:          42,
 }
 
 func main() {
@@ -36,6 +38,14 @@ func main() {
 		return
 	}
 	defer conn.Close()
+
+	initMsg := blueprint.StateMoveMessage{
+		GameState: nil,
+		MoveRow:   -1,
+		MoveCount: int8(config.seed),
+	}
+
+	data, err := json.Marshal(initMsg)
 }
 
 func ReadConfig(configFile string) []byte {
